@@ -5,20 +5,13 @@ output: html_document
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+The data I am analyzing is the books checked out more than ten times from 2017-2023. One thing I want to find out is which medium or UsageClass is more popular and if the ratio changes from year to year. I would also like to do something similar for the MaterialType of the publication like ebook, magazine, movie, music, etc. The last thing I would like to analyze is what books are the most popular and how much does that list change from year to year.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
-
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
+```{r, echo = F, message=FALSE, warning=FALSE, code = readLines("summary.R")}
+```
+There are `r num_digital_checkouts` digital checkouts within our dataset and `r num_physical_checkouts` physical checkouts in the dataset which split the `r total_checkouts` total checkouts evenly. Also I found that there are `r publication_types` types of publications like Ebooks, Magazines, Books, videos, etc. Another interesting piece of my data that I found is that the most viewed book overall is `r most_viewed`
 
 ### The Dataset
 
@@ -32,23 +25,9 @@ Feel free to calculate and report values that you find relevant.
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+``````{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("chart-1.R")}
 ```
+This chart shows the total number of checkouts per year based on whether the checkout was digital or physical. I think it is kind of interesting because the trend does shift quite drastically and at first I didn't understand why. After some thought, I realized the years when digital overtook Physical were the same years that the Pandemic was at its peak. 2023 has only just begun, but you can still see that the trend from the Pandemic has continued and there are still more Digital checkouts than Physical.
 
 ### Second Trends Over Time Chart
 
